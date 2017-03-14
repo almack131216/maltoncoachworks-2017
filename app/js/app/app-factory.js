@@ -40,7 +40,7 @@ myFactories.factory('buildSQLService', function() {
                 if(subcategoryID) tmpSQL += '&subcategoryID=' + subcategoryID;
                 if(sqlLimit) tmpSQL += '&sqlLimit=' + sqlLimit;
                 if(sqlKeyword) tmpSQL += '&sqlKeyword=' + sqlKeyword;
-                console.log('buildSQLService: ' + tmpSQL);
+                debugConsoleLog && console.log('buildSQLService: ' + tmpSQL);
                 return tmpSQL;
             }
         };

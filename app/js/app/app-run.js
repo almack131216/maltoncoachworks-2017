@@ -26,13 +26,14 @@ myRuns.run([
                     $rootScope.commonData = res;                    
                 },
                 function(res){
-                    console.log('--------------------------');
-                    console.log(res);
+                    debugConsoleLog && console.log('-----[ ERROR ]-----');
+                    debugConsoleLog && console.log(res);
                 });
 
         //call on each page change
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams) {
+                $rootScope.sqlKeyword = '';
                 $(".navbar-collapse").collapse('hide');//close header menu
                 window.scrollTo(0, 0);
                 $(".bootsnipp-search").removeClass("open");

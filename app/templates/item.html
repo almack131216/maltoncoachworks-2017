@@ -9,13 +9,15 @@
                     <ul class="row boxWrap" id="links">
                         <li ng-repeat="subItem in product | limitTo : 1 : 0" class="img-sq img-4x3 col-md-12 col-xs-12">
                             <a ng-href="{{ imgDirLarge + subItem.image_large }}" title="{{ subItem.name }}" data-gallery>
-                                <img class="boxThumb lazyload" ng-src="{{ imgDirLarge + subItem.image_large }}" alt="{{ subItem.name }}">
+                                <img ng-if="subItem.image_large" class="boxThumb lazyload" ng-src="{{ imgDirLarge + subItem.image_large }}" alt="{{ subItem.name }}">
+                                <img ng-if="!subItem.image_large" src="app/img/no-good.png">
                             </a>
                         </li>
             
                         <li ng-repeat="subItem in product | startFrom : 1" class="img-sq col-md-4 col-xs-4">
                             <a ng-href="{{ imgDirLarge + subItem.image_large }}" title="{{ subItem.name }}" data-gallery>
-                                <img class="boxThumb lazyload" ng-src="{{ imgDirThumbs + subItem.image_large }}" alt="{{ subItem.name }}">
+                                <img ng-if="subItem.image_large" class="boxThumb lazyload" ng-src="{{ imgDirThumbs + subItem.image_large }}" alt="{{ subItem.name }}">
+                                <img ng-if="!subItem.image_large" src="app/img/no-good.png">
                             </a>
                         </li>
                     </ul>

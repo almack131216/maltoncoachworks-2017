@@ -31,7 +31,7 @@ myControllers.controller('itemGetSetCtrl', function ($scope, $http, $rootScope, 
                 
                     $rootScope.itemName = data[0]['name'];
                     if(data[0]['snippetFull']) $rootScope.meta_description = data[0]['snippetFull'];
-                    console.log('(item) success: ' + JSON.stringify(data));
+                    debugConsoleLog && console.log('(item) success: ' + JSON.stringify(data));
                     $scope.pendingRequest = false;
                 })
                 .error(function (err) {

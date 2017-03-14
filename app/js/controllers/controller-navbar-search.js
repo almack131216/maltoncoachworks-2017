@@ -29,9 +29,9 @@ myControllers.controller('navCtrl', function ($scope, $rootScope, $controller, $
     // The function that will be executed on button click (ng-click="search()")
     $scope.search = function () {
         $rootScope.keywords = $('input.inpKeywords').val();
-        console.log('search > chars: ' + $('input.inpKeywords').val().length + ' - ' + $rootScope.keywords.length + ' (' + $rootScope.keywords + ')' );
+        debugConsoleLog && console.log('search > chars: ' + $('input.inpKeywords').val().length + ' - ' + $rootScope.keywords.length + ' (' + $rootScope.keywords + ')' );
         if ($rootScope.keywords && $rootScope.keywords.length >= 3) {
-            console.log('search > GO...');        
+            debugConsoleLog && console.log('search > GO...');        
             $rootScope.sqlKeyword = $rootScope.keywords;
             $location.path("/search/" + $rootScope.sqlKeyword);
         }

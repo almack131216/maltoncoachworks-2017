@@ -33,8 +33,8 @@ function($scope, $rootScope, $http, $log, myFactory, buildSQLService, $statePara
 	$scope.sqlLimit = $rootScope.pageLocation[$rootScope.activeCategory]['sqlLimit'];
     
     $scope.mySQL = buildSQLService.getURL($rootScope.activeCategory+"Ctrl",$scope.categoryID,$scope.subcategoryID,$scope.sqlLimit,$rootScope.sqlKeyword);
-    console.log('mySQL: ' + $scope.mySQL);
-    console.log('jsonKey: ' + $scope.jsonKey);    
+    debugConsoleLog && console.log('mySQL: ' + $scope.mySQL);
+    debugConsoleLog && console.log('jsonKey: ' + $scope.jsonKey);    
     //$rootScope.commonData = null;
 
     if($scope.jsonKey && $rootScope.commonData){
@@ -44,7 +44,7 @@ function($scope, $rootScope, $http, $log, myFactory, buildSQLService, $statePara
 
         $http.get($scope.mySQL)
 		.success(function(data) {
-            console.log('(list) success: ' + JSON.stringify(data));
+            debugConsoleLog && console.log('(list) success: ' + JSON.stringify(data));
 			$scope.products = data;
             $scope.pendingRequest = false;
 

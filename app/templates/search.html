@@ -20,7 +20,15 @@
 
                         <div class="img-wrap col-xs-3">
                             <a ui-sref="{{dylink}}({id: item.id, name: sanitizeURL(item.name), q: sanitizeKeywordsIn(sqlKeyword) })" title="Link to {{item.name}}">
-                                <img ng-if="item.image_large" src="{{ imgDir + item.image_large }}" class="lazyload" />
+                                <img ng-if="item.image_large"
+                                    data-sizes="auto"
+                                    data-src="{{ imgDir + item.image_large }}"
+                                    data-srcset="{{ imgDir + item.image_large }} 300w,
+                                    {{ imgDirLarge + item.image_large }} 600w,
+                                    {{ imgDirLarge + item.image_large }} 900w"
+                                    class="lazyload"/>
+                                
+                                <img ng-if="!item.image_large" src="app/img/no-good.png">
                             </a>
                         </div>
                         <div class="text-wrap col-xs-9">

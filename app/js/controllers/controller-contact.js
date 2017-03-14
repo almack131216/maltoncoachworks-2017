@@ -34,7 +34,7 @@ myControllers.controller('contactCtrlForm', function ($scope, $http) {
                 data    : $.param($scope.formData),  //param method from jQuery
                 headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
             }).success(function(data){
-                console.log(data);
+                debugConsoleLog && console.log(data);
                 if (data.success) { //success comes from the return json object
                     $scope.submitButtonDisabled = true;
                     $scope.resultMessage = data.message;

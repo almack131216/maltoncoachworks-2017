@@ -1,4 +1,7 @@
 /* app.js */
+
+var debugConsoleLog = false;
+
 var myRuns = angular.module('myApp.runs', []);
 var myDirectives = angular.module('myApp.directives', []);
 var myControllers = angular.module('myApp.controllers', []);
