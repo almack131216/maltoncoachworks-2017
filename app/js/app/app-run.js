@@ -20,15 +20,25 @@ myRuns.run([
             "block_3": { categoryID: 2, sqlLimit: 3, pageTitle: "Cars For Sale" }
         };
 
-        if (!$rootScope.commonData) $http.get('app/js/php/php-json.php?user=999')
-            .then(
-                function (res) {
-                    $rootScope.commonData = res;                    
-                },
-                function(res){
-                    debugConsoleLog && console.log('-----[ ERROR ]-----');
-                    debugConsoleLog && console.log(res);
-                });
+        //load results from json file
+        if (!$rootScope.commonData){
+            $http.get('app/js/php/results.json').success( function(data) {
+                $rootScope.commonData = data[0];                    
+            });
+        }
+
+        //CREATE and load results from json file
+        // if (!$rootScope.commonData){
+        //     $http.get('app/js/php/php-json.php?user=999').then(
+        //         function (res) {
+        //             $rootScope.commonData = res;                    
+        //         },
+        //         function(res){
+        //             debugConsoleLog && console.log('-----[ ERROR ]-----');
+        //             debugConsoleLog && console.log(res);
+        //         }
+        //     );
+        // }
 
         //call on each page change
         $rootScope.$on('$stateChangeSuccess',
