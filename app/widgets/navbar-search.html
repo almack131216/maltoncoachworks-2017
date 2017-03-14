@@ -1,8 +1,11 @@
 <form role="search" name="formName" ng-submit="search();" novalidate>
     <div class="[ input-group ]">
-        <input type="text" class="[ form-control ] inpKeywords" name="q" ng-model="keywords" ng-minlength="3" ng-maxlength="20"
-            placeholder="Search for..." required>
-        <span class="input-group-btn">
+        <input type="text" class="[ form-control ] inpKeywords" name="q"
+            ng-model="keywords" ng-minlength="3" ng-maxlength="20"
+            placeholder="Search for..."
+            autocomplete="off"
+            required>
+            <span class="input-group-btn">
             <button class="btn btn-primary" type="submit">SEARCH</button>
             <button class="[ btn btn-primary ]" type="reset">
                 <i class="fa fa-times color-danger"></i>
