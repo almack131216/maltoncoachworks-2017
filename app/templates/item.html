@@ -1,8 +1,8 @@
 <section class="section-main">
-    
-    <div class="container">       
+
+    <div class="container">
         <div class="row margin-bottom-2">
-            
+
             <div class="col-xs-12 col-sm-6" ng-if="itemImg">
                 <div class="block block-light img-block">
 
@@ -13,10 +13,14 @@
                                 <img ng-if="!subItem.image_large" src="app/img/no-good.png">
                             </a>
                         </li>
-            
+
                         <li ng-repeat="subItem in product | startFrom : 1" class="img-sq col-md-4 col-xs-4">
                             <a ng-href="{{ imgDirLarge + subItem.image_large }}" title="{{ subItem.name }}" data-gallery>
-                                <img ng-if="subItem.image_large" class="boxThumb lazyload" ng-src="{{ imgDirThumbs + subItem.image_large }}" alt="{{ subItem.name }}">
+                                <img ng-if="subItem.image_large" alt="{{ subItem.name }}" data-sizes="auto" data-src="{{ imgDir + subItem.image_large }}"
+                                    data-srcset="{{ imgDir + subItem.image_large }} 300w,
+                                    {{ imgDirLarge + subItem.image_large }} 600w,
+                                    {{ imgDirLarge + subItem.image_large }} 900w"
+                                    class="boxThumb lazyload" />
                                 <img ng-if="!subItem.image_large" src="app/img/no-good.png">
                             </a>
                         </li>
@@ -24,14 +28,14 @@
 
                 </div>
             </div>
-            
+
             <div class="col-xs-12" ng-class=" itemImg ? 'col-sm-6' : 'col-sm-12'">
                 <h1 ng-bind="itemName"></h1>
                 <p ng-if="itemSnippetFull"><strong ng-bind="itemSnippetFull"></strong></p>
-                <div ng-if="itemDescription" ng-bind-html="itemDescription"></div>                
+                <div ng-if="itemDescription" ng-bind-html="itemDescription"></div>
             </div>
 
         </div>
     </div>
-    
+
 </section>
