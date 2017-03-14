@@ -1,0 +1,56 @@
+/* lists */
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight:$header-font-weight;
+}
+
+h1 {color:black;}
+h4 {font-size:16px;}
+
+p a[target="_blank"]:after,
+.externalSite:after {
+    font-family: FontAwesome;
+    font-size:14px;
+    content: "\f08e";
+    display: inline-block;
+    padding-left: 5px;
+    vertical-align: top;
+}
+a {
+    color:$hyperlink-color;
+}
+a:hover {
+    color:$hyperlink-color-hover;
+    text-decoration: underline;
+}
+a:focus,a:active {
+    color:$hyperlink-color-active;
+}
+.cursor-pointer {cursor:pointer;}
+
+ul,li {margin:0;padding:0;list-style: none;}
+ul.ul-line-height-1-5 li {line-height:250%;}
+
+input,textarea,button{
+    @include border-radius(0px);
+}
+
+.txt-align-center {text-align:center;}
+.color-danger {color:$color-danger;}
+
+.txt-body-pad {
+    padding:$offset-g2 100px;
+    text-align:center;
+}
+
+/* icons */
+
+/* headings */
+
+/* Emphasis text */
+
+/* txt formatting */
+.hideText {@include hide-text();}
+.trimString {@include trim-string();}
+.snippet:after,.snippetWrap p:after {content:'...';}

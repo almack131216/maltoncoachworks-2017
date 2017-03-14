@@ -1,0 +1,35 @@
+<section class="section-main">
+    
+    <div class="container">       
+        <div class="row margin-bottom-2">
+            
+            <div class="col-xs-12 col-sm-6" ng-if="itemImg">
+                <div class="block block-light img-block">
+
+                    <ul class="row boxWrap" id="links">
+                        <li ng-repeat="subItem in product | limitTo : 1 : 0" class="img-sq img-4x3 col-md-12 col-xs-12">
+                            <a ng-href="{{ imgDirLarge + subItem.image_large }}" title="{{ subItem.name }}" data-gallery>
+                                <img class="boxThumb lazyload" ng-src="{{ imgDirLarge + subItem.image_large }}" alt="{{ subItem.name }}">
+                            </a>
+                        </li>
+            
+                        <li ng-repeat="subItem in product | startFrom : 1" class="img-sq col-md-4 col-xs-4">
+                            <a ng-href="{{ imgDirLarge + subItem.image_large }}" title="{{ subItem.name }}" data-gallery>
+                                <img class="boxThumb lazyload" ng-src="{{ imgDirThumbs + subItem.image_large }}" alt="{{ subItem.name }}">
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            
+            <div class="col-xs-12" ng-class=" itemImg ? 'col-sm-6' : 'col-sm-12'">
+                <h1 ng-bind="itemName"></h1>
+                <p ng-if="itemSnippetFull"><strong ng-bind="itemSnippetFull"></strong></p>
+                <div ng-if="itemDescription" ng-bind-html="itemDescription"></div>                
+            </div>
+
+        </div>
+    </div>
+    
+</section>

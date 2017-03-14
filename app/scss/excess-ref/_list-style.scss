@@ -1,0 +1,39 @@
+.list-comments {
+    margin:0;
+    padding:0;
+}
+.list-comments li {
+    padding:10px 0 5px 0;
+    @include add-border(1px,#cccccc,bottom);    
+}
+
+.list-comments li:last-child {border-bottom:none;}
+
+.list-comments img {
+    width:100px;
+}
+
+.list-features {
+    @extend .list;
+    margin:0;
+    padding:0;
+    width:80%;
+    
+    li {
+        line-height:3.0em;
+        @include add-border(1px,#ccc,bottom);
+    }    
+    li:last-child{
+        border:0;
+    }    
+    span {
+        vertical-align:top;
+        padding-top:9px;
+        font-size:120%;
+    }    
+    i {
+        margin-top:0px;
+        margin-right:5px;
+    }
+}
+

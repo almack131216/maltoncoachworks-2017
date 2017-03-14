@@ -1,0 +1,57 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 pictureWrap" ng-if="bannerCarousel">
+                
+                <div id="carousel" class="bg-loading carousel slide carousel-fade" data-ride="carousel">
+                    <ol ng-if="product.length>1" class="carousel-indicators">
+                        <li ng-repeat="item in product" data-target="#carousel" data-slide-to="{{$index}}" ng-class="{active:$index==0}" title="{{item.name}}"></li>
+                    </ol>
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div ng-repeat="item in product" class="item" ng-class="{active:$index==0}">
+                            <img ng-src="{{ imgDirLarge + item.image_large }}" alt="{{item.name}}">
+                        </div>
+                    </div>
+                    <!-- Carousel nav -->
+                    <a ng-if="product.length>1" class="carousel-control left" href="#carousel" data-slide="prev">
+                        <span><i class="fa fa-chevron-left"></i></span>
+                    </a>
+                    <a ng-if="product.length>1" class="carousel-control right" href="#carousel" data-slide="next">
+                        <span><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                </div>
+                <script ng-if="product.length>1">
+                    $( document ).ready(function() {
+                        $('#carousel').carousel();
+                    });        
+                </script>
+
+                <div class="txt-body-pad" ng-show="bannerText">
+                    <h1 ng-bind="product[0].name"></h1>
+                    <span ng-if="product[0].description" ng-bind-html="product[0].description | html"></span>                    
+                </div>
+                <div class="txt-body-pad padding-top-0" ng-show="bannerBtnsSocial">                 
+                    <btn-social-group></btn-social-group>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 pictureWrap" ng-if="!bannerCarousel">
+                <picture>
+                    <!--[if IE 9]><video style="display: none;><![endif]-->
+                    <source data-srcset="app/img/staff_480.jpg" media="--small" />
+                    <source data-srcset="app/img/staff_wide.jpg" media="--medium" />
+                    <source data-srcset="app/img/staff_wide.jpg"  media="--large" />
+                    <source data-srcset="app/img/staff_wide.jpg" />
+                    <!--[if IE 9]></video><![endif]-->
+                    <img
+                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="app/img/staff_480.jpg"
+                        class="lazyload"
+                        alt="" />
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>

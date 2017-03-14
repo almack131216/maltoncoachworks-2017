@@ -1,0 +1,132 @@
+/* carousel */
+/*
+image dimensions: 940x440 (original)
+height: 534 (min-width 1200)
+height: 440 (min-width 992)
+height: 337 (min-width 768)
+*/
+.carousel-indicators {
+    li {
+        margin:0 5px !important;
+    }
+}
+
+.carousel-chevron {
+    display:block;
+    width:50px;
+    height:50px;
+    text-align:center;
+    color:$primary-color;
+    text-shadow:none;
+    line-height:40px;
+    font-size:20px;
+    border:3px solid white;            
+    @include bg-tint('semi');
+    color:white;
+    cursor:pointer;
+}
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+
+            img {
+                width:100%;
+                height:auto;
+                padding: 0px;
+                border:none;
+            }
+        }
+        
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+        span {
+            @extend .carousel-chevron;
+            position:absolute;
+            top:50%;
+            left:0px;
+            margin:-25px 0 0 0;   
+            @include set-opacity('zero');         
+        }
+        &.left {
+            span {
+                border-left:0px;
+            }
+        }
+        &.right {            
+            span {
+                left:auto;
+                right:0px;
+                border-right:0px;
+            }
+        }
+    }
+}
+ 
+.carousel, 
+.carousel-inner, 
+.carousel-inner .item {
+    height: 100%;
+}
+
+/* overrule bootstrap */
+.carousel-control {
+    background:transparent !important;
+
+    &:focus,
+    &:hover {
+        text-decoration: none;
+        outline: 0;
+        span {
+            @include set-opacity('full');
+        }
+    }
+}
+
+@media (min-width: 1200px){
+    .carousel {min-height:534px}
+}
+@media (min-width: 992px){
+    .carousel {min-height:440px}
+}
+@media (min-width: 768px){
+    .carousel {min-height:337px}
+}
+
+// .carousel-indicators {
+//     li {
+//         width: 20px;
+//         height: 20px;
+//         margin:0 5px !important;
+//         text-indent: 0px;
+//         border: 1px solid #fff;
+//         @include border-radius(100%);
+
+//         &.active {
+//             width: 22px;
+//             height: 22px;
+//         }
+//     }
+// }

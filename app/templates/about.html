@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="txt-body-pad">
+        <h1 ng-bind="itemName"></h1>        
+        <p ng-if="itemSnippetFull"><strong ng-bind="itemSnippetFull"></strong></p>        
+        <span ng-bind-html="itemDescription | html"></span>        
+        <btn-social-group class="margin-top-g2"></btn-social-group>
+    </div>
+</div>
+
+<div class="sectionsWrap">    
+  <section
+      ng-repeat="section in loadedSections track by $index"
+      ng-include="'app/widgets/sections/'+section+'.html?v=' + vDate"
+      scroll-load
+      scroll-load-from="sections"
+      scroll-load-to="loadedSections"
+      ng-animate="{enter:'section-animate-enter'}"
+      >
+  </section>    
+  <btn-load-section></btn-load-section>
+</div>

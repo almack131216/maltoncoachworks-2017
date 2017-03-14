@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head ng-controller="headCtrl">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--<base href="http://www.maltoncoachworks.co.uk/#/">-->
+    <title ncy-breadcrumb-last="Malton Coachworks | Page Not Found"></title>
+    <meta name="keywords" content="{{ meta_keywords }}">
+    <meta name="description" content="{{ meta_description }}">
+    <meta name="author" content="{{ meta_author }}">
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico">
+
+</head>
+
+<body>
+    <div id="container-fixed-footer">
+        <header id="header">
+            <nav id="navbar-main" class="[ navbar ][ navbar-bootsnipp animate ]" role="navigation" ng-controller="navCtrl" ng-init="loadSearch()">
+                <div class="container">
+                    <div class="row">
+                        <div class="hidden-xs col-sm-3 col-address">
+                            <a href="tel:+441653692090" class="btn-telephone trimString"><i class="fa fa-phone fa-fw txt-after"></i><span>01653 692090</span></a>
+                            <span class="visible-md visible-lg ng-binding">Malton, North Yorkshire</span>
+                            <span class="visible-md visible-lg ng-binding">YO17 6BT, UK</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 padding-x-0 col-logo">
+                            <a class="[ navbar-brand ]" ui-sref="home" ng-title="title" href="#/">
+                                <img src="app/img/malton-coachworks-logo.jpg" alt="Malton Coachworks" title="Malton Coachworks">
+                            </a>
+                        </div>
+                        <div class="hidden-xs col-sm-3 col-socialise">
+                            <ul class="fa-sm pull-right socialise">
+                                <li class="facebook">
+                                    <a href="https://www.facebook.com/maltoncoachworks" title="Link to our facebook page in new window" target="_blank"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                                </li>
+                                <li class="twitter">
+                                    <a href="https://twitter.com/maltoncoachwork" title="Link to our twitter page in new window" target="_blank"><i class="fa fa-twitter"></i><span>twitter</span></a>
+                                </li>
+                                <li nclass="linkedin">
+                                    <a href="http://www.linkedin.com/pub/malton-coachworks/83/808/797" title="Link to our linkedin page in new window" target="_blank"><i class="fa fa-linkedin"></i><span>linkedin</span></a>
+                                </li>
+                                <li class="youtube">
+                                    <a href="http://www.youtube.com/channel/UCyT2-bypDjmWDTChx2Cl3uA" title="Link to our youtube page in new window" target="_blank"><i class="fa fa-youtube"></i><span>youtube</span></a>
+                                </li>
+                                <!-- end ngRepeat: li in data.social track by $index -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--(END) bootsnipp-search-->
+
+            </nav>
+
+        </header>
+
+
+        <div id="body">
+
+            <div class="text-align-center" style="text-align:center;padding:70px 0;">
+                <h1>404 - Page not found</h1>
+                <p>We have recently updated our website, so this page has moved</p>
+                <a class="btn btn-default btn-lg margin-top-2">Go to New Website</a>
+            </div>
+
+        </div>
+
+        <footer class="footer-main" ng-controller="footerCtrl" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxxs-12 col-xxs-6 col-xs-6 col-sm-6 block">
+                        <h3 ng-bind="data.str_company_name">Malton Coachworks</h3>
+                        <ul>
+                            <li><a href="#/about" ui-sref="about">About Malton Coachworks</a></li>
+                            <li><a ui-sref="services" href="#/services">Restoration Services</a></li>
+                            <li><a ui-sref="testimonials" href="#/testimonials">Customer Testimonials</a></li>
+                            <li><a ui-sref="portfolio" href="#/portfolio">Restoration Portfolio</a></li>
+                            <li><a ui-sref="contact" href="#/contact">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xxxs-12 col-xxs-12 col-xs-6 col-sm-6 block">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><a href="tel:+441653692090" class="ng-scope"><i class="fa fa-phone fa-fw txt-after"></i><span>01653 692090</span></a></li>
+                            <li><a ui-sref="contact" class="ng-scope" href="#/contact"><i class="fa fa-envelope-o fa-fw txt-after"></i>Contact Us</a></li>
+                            <!--                    <li><a href="#"><i class="fa fa-globe margin-right-1"></i>{{ company_web.replace('www.', '')}}</a></li>-->
+                            <li><a ui-sref="contact-newsletter" class="ng-scope" href="#/contact/newsletter"><i class="fa fa-newspaper-o fa-fw txt-after"></i>Get Newsletter</a></li>
+                            <li>
+                                <a href="https://www.google.com/maps/place/Malton+Coach+Works/@54.142058,-0.797304,16z/data=!4m5!3m4!1s0x0:0x6bba0f34182e8fe4!8m2!3d54.142058!4d-0.797304?hl=en-GB"
+                                    target="_blank" title="Show on Google Maps in a new window" class="ng-scope ng-binding"><i class="fa fa-map-marker fa-fw txt-after"></i>Showfield Lane Industrial Estate, Malton,
+                                    North Yorkshire, YO17 6BT, UK</a>
+                            </li>
+                            <li>
+                                <ul class="margin-top-1 socialise">
+                                    <li class="ng-scope facebook">
+                                        <a href="https://www.facebook.com/maltoncoachworks" title="Link to our facebook page in new window"
+                                            target="_blank"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                                    </li>
+                                    <li class="ng-scope twitter">
+                                        <a href="https://twitter.com/maltoncoachwork" title="Link to our twitter page in new window"
+                                            target="_blank"><i class="fa fa-twitter"></i><span>twitter</span></a>
+                                    </li>
+                                    <li class="ng-scope linkedin">
+                                        <a href="http://www.linkedin.com/pub/malton-coachworks/83/808/797" title="Link to our linkedin page in new window"
+                                            target="_blank"><i class="fa fa-linkedin"></i><span>linkedin</span></a>
+                                    </li>
+                                    <li class="ng-scope youtube">
+                                        <a href="http://www.youtube.com/channel/UCyT2-bypDjmWDTChx2Cl3uA" title="Link to our youtube page in new window"
+                                            target="_blank"><i class="fa fa-youtube"></i><span>youtube</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    <!-- CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/minified.min.css" rel="stylesheet">
+
+</body>
+
+</html>

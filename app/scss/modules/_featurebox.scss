@@ -1,0 +1,135 @@
+/* featurebox.scss */
+
+.featureboxGrid {    
+    .featurebox {
+        height:220px;
+        margin-bottom:$offset-g2;
+        
+        .row {
+            height:100%;
+            border:1px solid #ddd;
+            margin:0px !important;
+        }
+
+        .imgArea {
+            height:180px;
+            padding:0;
+            overflow:hidden;
+        
+            img {
+                width:100%;height:auto;min-height:100%;
+                  position: absolute;
+                    z-index: 0;
+                    top: 0;
+                    right: 0;
+                    margin: 0px;
+            }
+        }
+        .txtArea {
+            text-align:left;
+            padding:$offset-1 $offset-g1 !important;
+            height:40px;
+
+            h4 {
+                color:#000;font-weight:bold;
+                line-height:20px;
+                margin-bottom:0px;                
+                @include trim-string();
+            }
+            p {display:none;color:#666;margin-bottom:0;}
+        }
+        a:hover {text-decoration:none;}
+    }
+}
+
+/* lg */
+@media (min-width: 1200px) {
+    
+}
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .featureboxGrid {    
+        .featurebox {
+            height:200px;
+            .imgArea {
+                height:160px;        
+            }
+        }
+    }
+}
+
+@media (min-width:769px) and (max-width:991px){
+    .featureboxGrid {    
+        .featurebox {
+            height:280px;
+            .imgArea {
+                height:240px;        
+            }
+        }
+    }
+}
+
+@media (min-width:641px) and (max-width:768px){
+    .featureboxGrid {    
+        .featurebox {
+            height:260px;
+            .imgArea {
+                height:220px;        
+            }
+        }
+    }
+}
+
+@media (min-width:481px) and (max-width:640px){
+    .featureboxGrid {    
+        .featurebox {
+            height:220px;
+            .imgArea {
+                height:180px;        
+            }
+        }
+    }
+}
+
+//@media (min-width:320px) and (max-width:480px){
+@media all and (max-width:480px){
+   .featureboxGrid {//change from square (in grid) to rows
+        .featurebox {
+            height:auto;
+            margin-bottom:$offset-g1;
+
+            .imgArea {
+                height:auto;
+                overflow:visible;
+
+                img {
+                    height:auto;
+                    position:static;
+                    min-height:auto;
+                }        
+            }
+            .txtArea {
+                height:auto;
+
+                h4 {
+                    @include trim-string-remove();
+                }       
+            }
+        }
+    }
+}
+
+//@media (min-width:320px) and (max-width:480px){
+@media all and (min-width:240px) and (max-width:400px){
+   .featureboxGrid {    
+        .featurebox {
+            //max-height:70px;//need this to fix strange image stretch on iPhone. (?)
+            .imgArea {
+                //max-height:70px;
+                img {
+                    //max-height:70px;
+                }        
+            }
+        }
+    }
+}

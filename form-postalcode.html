@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+<title>My Form Example</title>
+<link rel="stylesheet" type="text/css" href="app/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="app/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="app/css/main.css">
+</head>
+    
+    <body>
+        
+
+    
+        <form name="myForm"
+              ng-submit="submitted = true; ctrl.submit(form, myForm.$valid)"
+              novalidate
+              ng-controller="FormCtrl as ctrl">
+            
+            <div class="form-input">
+                <label>Full Name:</label>
+                
+                <input type="text"
+                       id="name"
+                       ng-model="form.fullName"
+                       name="fullName"
+                       full-name-validator
+                       required
+                       minlength="5"
+                       maxlength="20"
+                       >
+
+                <div ng-messages="myForm.fullName.$error" style="border:1px solid green">
+                    <div ng-messages-include="errors.html"></div>
+                </div>
+
+            </div>
+            
+            <div class="form-input">
+                <label>Post Code:</label>
+                
+                <input type="text"
+                       id="postal"
+                       ng-model="form.postalCode"
+                       name="postalCode"
+                       postal-code-validator
+                       required
+                       minlength="5"
+                       maxlength="7"
+                       ng-model-options="{ updateOn: 'blur' }"
+                       class="text-uppercase"
+                       >
+
+                <div ng-if="(myForm.postalCode.$touched || submitted)" ng-messages="myForm.postalCode.$error" style="border:1px solid red">
+                    <!--//(myForm.firstName.$touched || submitted)//-->
+                    <div ng-message="minlength">too short</div>
+                    <div ng-message="maxlength">too long</div>
+                    <div ng-message="postalCode">this is not a valid postal code</div>
+                </div>
+                
+                <input type="submit" id="submit" value="Submit" />
+            </div>
+        </form>
+        
+        
+        <script type="text/javascript" src="app/js/angular.js"></script>
+        <script type="text/javascript" src="app/js/angular-messages.js"></script>
+        <script type="text/javascript" src="app/js/angular-animate.js"></script>
+
+        <script type="text/javascript">
+        testForm = angular.module("MyApp",['ngMessages'])
+        testForm.controller("FormCtrl",["$scope", function($scope){
+            this.submit = function(formData, validity){
+                if(validity){
+                    alert('submitting: ' + JSON.stringify(formData));
+                }
+            }
+        }])
+        testForm.directive('postalCodeValidator', function(){
+            return {
+                require: 'ngModel',
+                link: function($scope, element, attrs, ctrl){
+                    ctrl.$validators.postalCode = function(modelValue,viewValue){
+                        var value = modelValue || viewValue;
+                        if(value) value = value.toUpperCase();
+                        var regex = /[A-Z]\d ?\d[A-Z]/;
+                        console.log('postalCodeValidator: ' + value);
+                        return regex.test(value);
+                    };
+                    
+                }
+            }
+        })
+        
+        testForm.directive('fullNameValidator', function(){
+            return {
+                require: 'ngModel',
+                link: function($scope, element, attrs, ctrl){
+                    ctrl.$validators.fullName = function(modelValue,viewValue){
+                        var value = modelValue || viewValue;
+                        var regex = /[a-zA-Z]{3,30}/;
+                        console.log('fullNameValidator: ' + value);
+                        return regex.test(value);
+                        
+                    };
+                    
+                }
+            }
+        })
+        </script>
+    </body>
+
+</html>

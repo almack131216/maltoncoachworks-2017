@@ -1,0 +1,42 @@
+<div>
+    <div class="block block-secondary">
+        <h3><a href="/" ng-bind="title"></a></h3>
+
+        <ul class="row boxWrap" id="block_2_links">
+            <li ng-repeat="item in products | limitTo : 1 : 0" class="img-sq img-4x3 col-md-12 col-sm-12 col-xs-12">
+                <a
+                    href="{{ 'https://www.youtube.com/watch?v=' + item.YouTubeID }}"
+                    type="text/html"
+                    title="{{ item.name }}"
+                    data-youtube="{{ item.YouTubeID }}"
+                    data-poster="{{ imgDirLarge + item.image_large }}"
+                    data-gallery="#blueimp-gallery-block_2_links"
+                >
+                <img
+                    alt="{{ item.name }}"
+                    ng-src="{{ imgDir + item.image_large }}"
+                    class="lazyload boxThumb"
+                >
+                    <span class="media-icon"><i class="fa fa-play"></i></span>
+                </a>
+            </li>
+            <li ng-repeat="item in products | startFrom : 1" class="img-sq col-xs-4">
+                <a
+                    href="{{ 'https://www.youtube.com/watch?v=' + item.YouTubeID }}"
+                    type="text/html"
+                    title="{{ item.name }}"
+                    data-youtube="{{ item.YouTubeID }}"
+                    data-poster="{{ imgDirLarge + item.image_large }}"
+                    data-gallery="#blueimp-gallery-block_2_links"
+
+                >
+                <img
+                    alt="{{ item.name }}"
+                    ng-src="{{ imgDir + item.image_large }}"
+                    class="lazyload boxThumb">
+                    <span class="media-icon"><i class="fa fa-play"></i></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

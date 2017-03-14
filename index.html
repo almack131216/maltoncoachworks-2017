@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head ng-controller="headCtrl">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">-->
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <!--    <title ng-bind="meta_title"></title>-->
+        <title ncy-breadcrumb-last="Malton Coachworks | {{ncyBreadcrumbLabel}}"></title>
+        <meta name="keywords" content="{{ meta_keywords }}">
+        <meta name="description" content="{{ meta_description }}">
+        <meta name="author" content="{{ meta_author }}">
+        <meta charset="UTF-8">
+        <link rel="icon" href="favicon.ico">
+      
+        <style>      
+        /* hide blueimp-gallery to avoid naked buttons showing during load */
+        /* blueimp-gallery-display - this class is added when gallry is required - now we can see it */
+        /* blueimp-gallery-controls - this class is added to show overlays on gallery */
+        .blueimp-gallery{display: none;}     
+        </style>
+      
+  </head>
+
+  <body>
+    <div id="container-fixed-footer">
+        <header-bar id="header" ng-cloak></header-bar>
+        
+        <div id="body">
+            <section class="breadcrumbBar" ng-class="{hide: $state.includes('home')}" >        
+                <div class="container"><div ncy-breadcrumb></div></div>
+            </section>
+            
+            <ui-view ng-cloak></ui-view>
+        </div>
+
+        <footer-bar ng-cloak id="footer"></footer-bar>
+    </div>   
+
+
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+    <!--<div id="blueimp-gallery" class="blueimp-gallery">-->
+    <div ng-if="!$state.includes('home')" id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title"></h3>
+        <a class="prev"><i class="fa fa-chevron-left"></i></a>
+        <a class="next"><i class="fa fa-chevron-right"></i></a>
+        <a class="close"><i class="fa fa-times"></i></a>
+        <a class="play-pause">
+            <i class="fa fa-play"></i>
+            <i class="fa fa-pause"></i>
+        </a>
+        <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body next"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left prev">
+                            <i class="fa fa-chevron-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary next">
+                            Next
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+
+      
+    <!-- JS
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bootstrap-config/bootstrap/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-breadcrumb/dist/angular-breadcrumb.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/lazysizes/lazysizes.js"></script>
+      
+    <script src="app/js/app/app.js"></script>
+    <script src="app/js/app/app-run.js"></script>    
+    <script src="app/js/app/app-constants.js"></script>
+    <script src="app/js/app/app-factory.js"></script>
+    <script src="app/js/app/app-routes.js"></script>      
+    
+    <script src="app/js/directives/_common-directives.js"></script>
+    <script src="app/js/directives/directive-ui.js"></script>
+    <script src="app/js/directives/directive-btns.js"></script>
+    <script src="bower_components/angular-read-more/dist/readmore.cust.js"></script>
+    <script src="app/js/directives/directive-dynamics.js"></script>
+    <script src="app/js/directives/directive-sections.js"></script>
+    <script src="app/js/directives/directive-contact.js"></script>
+    <script src="app/js/directives/directive-navbar-search.js"></script>
+    <script src="app/js/directives/directive-search-results-tags.js"></script>    
+      
+    <script src="app/js/controllers/_common-controllers.js"></script> 
+    <script src="app/js/controllers/controller-ui.js"></script>
+    <script src="app/js/controllers/controller-blocks.js"></script>
+    <script src="app/js/controllers/controller-contact.js"></script>
+    <script src="app/js/controllers/controller-item.js"></script>
+    <script src="app/js/controllers/controller-item-list-parent.js"></script>   
+    <script src="app/js/controllers/controller-items.js"></script>
+	<script src="app/js/controllers/controller-navbar-search.js"></script>
+    <script src="app/js/controllers/controller-search.js"></script>
+    
+    <script src="app/js/filters/_common-filters.js"></script>
+    <script src="app/js/filters/filter-truncate.js"></script>      
+    
+    <script src="app/js/_common.js"></script>    
+    <script src="app/js/navbar-search.js?v=2"></script>
+
+    <!-- Bluimp-Gallery: JS -->
+    <script src="bower_components/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>   
+    
+    <!-- CSS -->
+    <!--<link href="dist/css/bootstrap.min.css" rel="stylesheet">    -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="app/css/main.css" rel="stylesheet">
+      
+    <!-- Bluimp-Gallery: CSS -->
+    <link rel="stylesheet" href="bower_components/blueimp-gallery/css/blueimp-gallery-video.css">
+
+  </body>
+</html>

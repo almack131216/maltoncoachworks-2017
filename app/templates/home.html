@@ -1,0 +1,17 @@
+<banner-bar
+    controller-name="banner_carouselCtrl"
+    banner-carousel="true"
+    banner-text="true" 
+    banner-btns-social="true">
+</banner-bar>
+
+<div class="sectionsWrap">
+    <section
+        ng-repeat="section in loadedSections"
+        ng-include="'app/widgets/sections/'+section+'.html?v=' + vDate"
+        scroll-load
+        scroll-load-from="sections"
+        scroll-load-to="loadedSections"
+        ng-animate="{enter:'section-animate-enter'}">
+    </section>
+</div>

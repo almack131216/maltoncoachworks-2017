@@ -1,0 +1,58 @@
+/* Git Notes */
+
+////
+git init
+git remote rm origin (To remove a remote repository)
+git remote add origin https://al20031@bitbucket.org/al20031/mcw.git
+https://github.com/almack131216/mcw.git
+
+////
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/almack131216/maltoncoachworks-2017.git
+git push -u origin master
+
+cd...
+git init
+git status
+git add
+git add . (This will add all paths and ignore matches from .gitignore)
+git status
+git commit -m "commit notes here"
+git push -u origin master
+
+
+
+// Remove directory from push list
+git rm -r -f --cached bower_components
+git rm -r -f --cached node_modules
+git rm -r -f --cached _ref
+git rm -r -f --cached repos
+git rm -r -f --cached .sass-cache
+
+Steps:
+git rm -r -f --cached DirectoryName
+git commit -m "removed directory"
+git push -u origin master
+
+// Add directory
+git add DirectoryName
+git commit -m "added directory"
+git push -u origin master
+
+// Make directory
+>mkdir repos
+
+// Create new file
+>echo "Earth's Moon" >> locations.txt
+
+// delete all files in directory
+git rm -r *
+git commit -m "truncate directory"
+
+//
+git remote rm origin
+
+// GET
+git pull --all

@@ -1,0 +1,37 @@
+<div class="container" ng-cloak>
+    <!--<input ng-model="query" placeholder="Search" ng-model-options="{ debounce: {'default': 500, blur: 0}}">-->
+
+    <span class="padding-g1" ng-if="pendingRequest">Loading...</span>
+
+    <ul class="row featureboxGrid" ng-if="!pendingRequest">
+        
+        <li class="col-xxxs-12 col-xxs-6 col-xs-6 col-md-3 featurebox" ng-repeat="item in products | filter:query">
+            <!--ng-class="{6:'isPortfolioBlock',8:'isStaffBlock'}[item.categoryID]"-->
+            <a ui-sref="{{dylink}}({id: item.id, name: sanitizeURL(item.name)})">
+
+                <div class="row margin-x-0">
+                    <span class="imgArea col-xxxs-4 col-xs-12 img-4x3">
+                                
+                        <img ng-if="item.image_large"
+                            data-sizes="auto"
+                            data-src="{{ imgDir + item.image_large }}"
+                            data-srcset="{{ imgDir + item.image_large }} 300w,
+                            {{ imgDirLarge + item.image_large }} 600w,
+                            {{ imgDirLarge + item.image_large }} 900w"
+                            class="lazyload"/>
+                        
+                        <img ng-if="!item.image_large" src="app/img/no-good.png">
+                        
+                    </span>
+                    <span class="txtArea col-xxxs-8 col-xs-12 col-xxxs-padding-left-1 padding-x-0">
+                        <h4 ng-bind="item.name" ng-cloak></h4>
+                        <span ng-if="categoryID==6">
+                            <p ng-bind="item.snippet | htmlToPlaintext" class="snippet"></p>
+                        </span>
+                    </span>
+                </div>
+            </a>
+        </li>
+        
+    </ul>
+</div>

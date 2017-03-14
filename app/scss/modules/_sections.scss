@@ -1,0 +1,24 @@
+/* sections */
+section {
+    padding:0;
+    &.section-main {
+        padding-top:$offset-g2;
+    }
+}
+section:first-of-type {}
+
+.sectionsWrap {
+    .btn-load-sections {display:inline-block;}
+}
+
+/* dynamically loaded sections on scroll */
+.section-animate-enter {
+    -webkit-transition: 1.5s linear all;
+    transition: 1.5s linear all;
+    opacity: 0;
+    left: 100%;
+}
+.section-animate-enter.section-animate-enter-active {
+    opacity: 1;
+    left: 0;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+<title>My Form Example</title>
+<link rel="stylesheet" type="text/css" href="app/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="app/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="app/css/main.css">
+</head>
+    
+    <body>
+    
+        <form name="myForm"
+              ng-submit="submitted = true; ctrl.submit(form, myForm.$valid)"
+              novalidate
+              ng-controller="FormCtrl as ctrl">
+            
+            
+            <div class="form-input">
+                <label>First Name:</label>
+                <input type="text"
+                       ng-model="form.firstName"
+                       required
+                       name="firstName"
+                       ng-model-options="{ updateOn: 'blur' }">
+                <div ng-if="myForm.firstName.$error.required && submitted">
+                    <!--//(myForm.firstName.$touched || submitted)//-->
+                    You must enter your first name
+                </div>
+                
+                <input type="text"
+                       id="postal"
+                       ng-model="postalCode"
+                       name="myField"
+                       postal-code-validator>
+                <input type="submit" id="submit" value="Submit" />
+            </div>
+        </form>
+        
+        
+        <script type="text/javascript" src="app/js/angular.js"></script>
+        <script type="text/javascript" src="app/js/angular-messages.js"></script>
+        <script type="text/javascript" src="app/js/angular-animate.js"></script>
+
+        <script type="text/javascript">
+        testForm = angular.module("MyApp",[])
+        testForm.controller("FormCtrl",["$scope", function($scope){
+            this.submit = function(formData, validity){
+                if(validity){
+                    alert('submitting: ' + JSON.stringify(formData));
+                }
+            }
+        }])
+        testForm.directive('postalCodeValidator', function(){
+            return {
+                require: 'ngModel',
+                link: function($scope, element, attrs, ctrl){
+                    ctrl.$validators.postalCode = function(modelValue,viewValue){
+                        var value = modelvalue || viewValue;
+                        var regex = /[A-Z]\d[A-Z]\ ?\d[A-Z]\d/;
+                        return regex.test(value);
+                    }
+                    
+                }
+            }
+        })
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,44 @@
+/* Blocks */
+
+.block {
+    padding:$offset-g1;
+    margin-bottom:$offset-g2;
+
+    h3{
+        margin-top:0;
+        padding-top:0;        
+    }
+
+    &.block-primary {
+        @include add-background($primary-color);
+        
+        a {color:#fff;}
+    }
+
+    &.block-secondary {
+        @include add-background($secondary-color);
+        
+        a {color:#fff;}
+    }
+
+    &.block-light {
+        @include add-background($light-color);
+    }
+
+    &.block-primary-head {    
+        h3{
+            padding:$offset-g1;
+            @include add-background($primary-color);
+            margin:0;
+            font-size:18px;
+        }
+
+        .block-content {
+            @include add-border(1px, $primary-color, all);
+            padding:$offset-g1;
+        }
+    }    
+}
+
+.block.isPortfolioBlock {}
+.block.isStaffBlock {}

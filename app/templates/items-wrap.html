@@ -1,0 +1,16 @@
+<section>    
+    
+    <div class="container" ng-if="itemName || itemDescription">
+        <div class="txt-body-pad">
+            <h1 ng-bind="itemName"></h1>
+
+            <div ng-if="itemDescription" ng-bind-html="itemDescription"></div>
+
+            <div class="btn-social-row" ng-if="activeCategory=='portfolio' || activeCategory=='testimonials'">                
+                <btn-reviews></btn-reviews>
+            </div>
+        </div>
+    </div>
+    <items-list></items-list>
+
+</section>

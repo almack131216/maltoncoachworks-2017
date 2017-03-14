@@ -1,0 +1,94 @@
+<div class="col-xxxs-12 col-xxs-12 col-xs-6 col-sm-6 col-md-4">
+    <div class="block" ng-class="{ 'block-secondary' : blockType=='testimonials', 'block-primary' : blockType=='portfolio' || blockType=='classifieds', 'block-white' : blockType=='custom' }">
+
+        <span ng-if="pendingRequest">Loading...</span>
+
+        <!-- custom -->
+        <div class="row boxWrap" ng-if="!pendingRequest && blockType=='custom'">
+            <h3>Contact Us</h3>
+            <ul class="ul-line-height-1-5">
+                <li>
+                    <btn-telephone></btn-telephone>
+                </li>
+                <li>
+                    <btn-contact></btn-contact>
+                </li>
+                <li>
+                    <btn-newsletter></btn-newsletter>
+                </li>
+                <li>
+                    <btn-address-map></btn-address-map>
+                </li>
+                <li>
+                    <btn-social-group class="margin-top-2"></btn-social-group>
+                </li>
+            </ul>
+        </div>
+
+        <!-- portfolio -->
+        <div ng-if="!pendingRequest && blockType=='portfolio'">
+            <h3>
+                <a ui-sref="portfolio" ng-bind="title"></a>
+            </h3>
+            <ul class="row boxWrap">
+                <li ng-repeat="item in products" class="row imgWithTextRow">
+                    <a ui-sref="portfolio-product({id: item.id, name: sanitizeURL(item.name)})" title="{{ item.name }}">
+                        <span class="col-xs-4 margin-0 padding-0 img-sq">
+                            <img class="lazyload" data-src="{{ imgDir + item.image_large }}" alt="{{ item.name }}">
+                        </span>
+
+                        <span class="col-xs-8 padding-right-0">
+                            <h4 ng-bind="item.name | characters:40: false"></h4>
+                            <div class="visible-xxs snippetWrap" ng-bind-html="item.snippet | html"></div>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- testimonials -->
+        <div ng-if="!pendingRequest && blockType=='testimonials'">
+            <h3>
+                <a ui-sref="testimonials" ng-bind="title"></a>
+            </h3>
+            <ul class="row boxWrap">
+                <li ng-repeat="item in products | limitTo : 1 : 0" class="img-sq img-4x3 col-xs-12">
+                    <a ui-sref="testimonials-product({id: item.id, name: sanitizeURL(item.name)})" title="{{ item.name }}">
+                        <img alt="{{ item.name }}" ng-src="{{ imgDirLarge + item.image_large }}" class="lazyload boxThumb">
+                    </a>
+                </li>
+
+                <li ng-repeat="item in products | startFrom : 1" class="img-sq col-xs-4">
+                    <a ui-sref="testimonials-product({id: item.id, name: sanitizeURL(item.name)})" title="{{ item.name }}">
+                        <img alt="{{ item.name }}" ng-src="{{ imgDir + item.image_large }}" class="lazyload boxThumb">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- (END) testimonials -->
+        <!-- classifieds -->
+        <div ng-if="!pendingRequest && blockType=='classifieds'">
+            <h3>
+                <a href="{{externalSite}}" target="_blank" ng-bind="title" class="externalSite"></a>
+            </h3>
+            <ul class="row boxWrap">
+                <li ng-repeat="item in products | limitTo : 3 : 0" class="row imgWithTextRow">
+                    <a ng-href="{{ externalSite + '/' + sanitizeURL(item.name) + '/classic-cars-for-sale/' + item.id }}" target="_blank">
+                        <span class="col-xs-4 margin-0 padding-0 img-sq">
+                            <img class="lazyload" data-src="{{ externalSiteImgDir + item.image_large }}" alt="{{ item.name }}">
+                        </span>
+
+                        <span class="col-xs-8 padding-right-0">
+                            <h4 ng-bind="item.name | characters:40: false" class="externalSite"></h4>
+                            <div class="hidden-xxxs visible-xs snippetWrap" ng-bind-html="item.snippet | html"></div>       
+                            <span ng-if="item.price!=0" ng-bind="item.price | currency:'£':0"></span>
+                            <span ng-if="item.priceDetails" ng-bind="item.priceDetails"></span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- (END) classifieds -->
+
+    </div>
+</div>

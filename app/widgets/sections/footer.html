@@ -1,0 +1,28 @@
+<footer class="footer-main" ng-controller="footerCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxxs-12 col-xxs-6 col-xs-6 col-sm-6 block">
+                <h3 ng-bind="data.str_company_name"></h3>
+                <ul>
+                    <li><a href="#" ui-sref="about">About Malton Coachworks</a></li>
+                    <li><a ui-sref="services">Restoration Services</a></li>
+                    <li><a ui-sref="testimonials">Customer Testimonials</a></li> 
+                    <li><a ui-sref="portfolio">Restoration Portfolio</a></li>
+                    <li><a ui-sref="contact">Contact us</a></li>
+                </ul>
+            </div>            
+            <div class="col-xxxs-12 col-xxs-12 col-xs-6 col-sm-6 block">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><btn-telephone></btn-telephone></li>
+                    <li><btn-contact></btn-contact></li>
+<!--                    <li><a href="#"><i class="fa fa-globe margin-right-1"></i>{{ company_web.replace('www.', '')}}</a></li>-->
+                    <li><btn-newsletter></btn-newsletter></li>   
+                    <li><btn-address-map></btn-address-map></li>
+                    <li><btn-social-group class="margin-top-1"></btn-social-group></li>
+                </ul>
+            </div>
+
+        </div>
+      </div>
+  </footer>

@@ -1,0 +1,13 @@
+<div>
+    <div class="block block-primary">
+        <h3><a href="/portfolio" ng-bind="title"></a></h3>
+
+        <ul class="row boxWrap" id="block_1_links">
+            <li ng-repeat="item in products" class="img-sq col-md-4 col-xs-4">
+                <a ng-href="{{ imgDirLarge + item.image_large }}" title="{{ item.name }}" data-gallery="#blueimp-gallery-block_1_links">
+                    <img class="boxThumb lazyload" data-src="{{ imgDir + item.image_large }}" alt="{{ item.name }}">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

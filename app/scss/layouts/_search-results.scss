@@ -1,0 +1,37 @@
+div.filter-tag-wrap {
+    padding:$offset-g1 0 0 0;
+
+    label {margin-right:$offset-1;}
+
+    button.btn {
+        margin:0 $offset-1 $offset-1 0;
+        @include border-radius(30px);
+    }
+}
+
+ul.list-search-results {
+    li {
+        margin:$offset-g2 0 0 0;
+
+        .img-wrap {
+            padding:0px;
+
+            img {
+                width:100%;
+                height:auto;
+            }
+        }
+        .text-area {
+
+        }
+    }
+}
+
+/* xs */
+@media all and (max-width: 768px) {
+    ul.list-search-results {
+        li {
+            margin:$offset-g1 0 0 0;
+        }
+    }
+}

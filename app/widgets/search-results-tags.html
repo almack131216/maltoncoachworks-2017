@@ -1,0 +1,28 @@
+<div class="filter-tag-wrap">
+
+    <div ng-if="resultsTagArr.length > 1" class="visible-xs-down">
+        <label>{{filterLabel}}</label>
+        <select name="tagSelect" ng-model="tagSelect" ng-change="filterApply(tagSelect)">
+            <option ng-repeat="option in resultsTagArr" value="{{option}}">{{resultsTagNameArr[$index]}}</option>
+            <option value="">Show All ({{resultsCount}})</option>
+        </select>
+    </div>
+
+    <div ng-if="resultsTagArr.length >= resultsTagThreshold" class="hidden-xs-down">
+        <label>{{filterLabel}}</label>
+        <select name="tagSelect" ng-model="tagSelect" ng-change="filterApply(tagSelect)">
+            <option ng-repeat="option in resultsTagArr" value="{{option}}">{{resultsTagNameArr[$index]}}</option>
+            <option value="">Show All ({{resultsCount}})</option>
+        </select>
+    </div>
+    <div ng-if="resultsTagArr.length < resultsTagThreshold" class="hidden-xs-down">
+        <label>{{filterLabel}}</label>
+        <button class="btn btn-primary" ng-click="filterApply('')" ng-class="{'active':!filterTagSelected}">
+            All
+        </button>
+        <button ng-repeat="tag in resultsTagArr" class="btn btn-primary" ng-click="filterApply(tag)" ng-class="{'active':tag==filterTagSelected}">
+            {{resultsTagNameArr[$index]}}
+        </button>
+    </div>
+    
+</div>

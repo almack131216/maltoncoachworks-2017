@@ -1,0 +1,73 @@
+<header>
+    <nav id="navbar-main" class="[ navbar ][ navbar-bootsnipp animate ]" role="navigation" ng-controller="navCtrl" ng-init="loadSearch()">
+        <div class="container">
+            <div class="row">
+                <div class="hidden-xs col-sm-3 col-address">
+                    <btn-telephone class="btn-telephone trimString"></btn-telephone>
+                    <span class="visible-md visible-lg">{{ data.str_company_address_lite }}</span>
+                    <span class="visible-md visible-lg">{{ data.str_company_postcode + ', ' + data.str_company_country }}</span>
+                </div>
+                <div class="col-xs-12 col-sm-6 padding-x-0 col-logo">
+                    <a class="[ navbar-brand ]" ui-sref="home" ng-title="title">
+                        <img src="app/img/malton-coachworks-logo.jpg" alt="{{data.str_company_name}}" title="{{data.str_company_name}}">
+                    </a>
+                </div>
+                <div class="hidden-xs col-sm-3 col-socialise">
+                    <btn-social-group class="fa-sm pull-right"></btn-social-group>
+                </div>
+            </div>
+        </div>
+        <div class="container nav-items">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="[ navbar-header ]">
+                <button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+                <a class="[ navbar-toggle ] navbar-phone" href="tel:{{data.str_company_telephone_code}}">
+                    <i class="fa fa-lg fa-phone"></i>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
+                <ul class="[ nav navbar-nav ]">
+
+                    <li class="[ visible-xs ]" ng-show="isSearchable">
+                        <search-form form-name="searchFormXS"></search-form>
+                    </li>
+
+                    <li class="visible-xs"><a class="" ui-sref="home">Home</a></li>
+                    <li class="dropdown-right">
+                        <a class="[ dropdown-toggle ] cursor-pointer" data-toggle="dropdown">Malton Coachworks <span class="[ caret ]"></span></a>
+                        <ul class="[ dropdown-menu ]" role="menu">
+                            <li><a ui-sref="about">About Malton Coachworks</a></li>
+                            <li><a ui-sref="testimonials">Customer Testimonials</a></li>
+                            <li><a ui-sref="contact">Contact us</a></li>
+                        </ul>
+                    </li>
+                    <li><a ui-sref="services"><span class="hidden-sm">Restoration </span>Services</a></li>
+                    <li><a ui-sref="portfolio"><span class="hidden-sm">Restoration </span>Portfolio</a></li>
+                    <li><a ui-sref="contact">Contact</a></li>
+                    <li class="visible-xs"><a class="dropdown-close" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><i class="fa fa-chevron-up"></i></a></li>
+
+                    <li class="[ hidden-xs ]" ng-show="isSearchable">
+                        <a href="#toggle-search" class="btn-search"><i class="fa fa-search"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="[ bootsnipp-search animate ]" ng-show="isSearchable">
+            <div class="[ container ]">
+                <search-form form-name="searchForm"></search-form>
+            </div>
+        </div>
+        <!--(END) bootsnipp-search-->
+
+    </nav>
+
+</header>

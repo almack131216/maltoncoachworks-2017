@@ -1,0 +1,102 @@
+{
+    "intro": {
+        "id": "506",
+        "name": "Welcome to Malton Coachworks",
+        "image_large": "malton-coachworks_506.jpg",
+        "snippet": "",
+        "description": "<p>Malton Coachworks is a wholly-owned subsidiary of <a href=\"http:\/\/www.classicandsportscar.ltd.uk\/\" target=\"_blank\" title=\"Link to Classic &amp; Sportscar Centre website in new window\">Classic &amp; Sportscar<\/a> Ltd. Established in 1991, the Company has earned a national reputation as purveyors of high quality Classic, Vintage, and Collector&#39;s cars.<\/p>"
+    },
+    "portfolio": [
+        {
+            "id": "445",
+            "name": "MGA Roadster",
+            "image_large": "malton-coachworks-complete-full-nut-and-bolt-rebuild-for-new-york-based-client_445.jpg",
+            "snippet": "Malton Coachworks have completed a full nut and bolt rebuild on an MGA Roadster for a New York based",
+            "categoryID": "6"
+        },
+        {
+            "id": "389",
+            "name": "TVR Chimaera",
+            "image_large": "tvr-chimaera_389.jpg",
+            "snippet": "This Vintage Sports car is at Malton Coachworks having a complete re-spray and some minor imperfecti",
+            "categoryID": "6"
+        },
+        {
+            "id": "396",
+            "name": "Volkswagen Golf",
+            "image_large": "volkswagen-golf_396.jpg",
+            "snippet": "This Classic Vw Golf is at Malton Coachworks having a full re-spray and some minor imperfections rep",
+            "categoryID": "6"
+        }
+    ],
+    "testimonials": [
+        {
+            "id": "487",
+            "name": "Red Car",
+            "image_large": "red-car_487.jpg",
+            "snippet": "",
+            "categoryID": "8",
+            "YouTubeID": "",
+            "snippetFull": ""
+        },
+        {
+            "id": "488",
+            "name": "Jensen CV8",
+            "image_large": "jensen-cv8_488.jpg",
+            "snippet": "",
+            "categoryID": "8",
+            "YouTubeID": "",
+            "snippetFull": ""
+        },
+        {
+            "id": "489",
+            "name": "Volvo P1800",
+            "image_large": "volvo-p1800_489.jpg",
+            "snippet": "",
+            "categoryID": "8",
+            "YouTubeID": "",
+            "snippetFull": ""
+        },
+        {
+            "id": "482",
+            "name": "Work team",
+            "image_large": "work-team_482.jpg",
+            "snippet": "outside the bodyshop",
+            "categoryID": "8",
+            "YouTubeID": "",
+            "snippetFull": "outside the bodyshop"
+        }
+    ],
+    "classifieds": [
+        {
+            "id": "27128",
+            "name": "Volvo 1800S Coupe",
+            "image_large": "volvo-1800s-coupe_27128.jpg",
+            "snippet": "",
+            "categoryID": "2",
+            "year": "1963",
+            "price": "29995",
+            "priceDetails": ""
+        },
+        {
+            "id": "27145",
+            "name": "it's a Rover P4 100 Rover P4 100 Rover P4 100 Rover P4 100",
+            "image_large": "rover-p4-100_27145.jpg",
+            "snippet": "",
+            "categoryID": "2",
+            "year": "1962",
+            "price": "10995",
+            "priceDetails": ""
+        },
+        {
+            "id": "27164",
+            "name": "Daimler V8250",
+            "image_large": "daimler-v8250_27164.jpg",
+            "snippet": "",
+            "categoryID": "2",
+            "year": "1969",
+            "price": "34995",
+            "priceDetails": ""
+        }
+    ]
+}
