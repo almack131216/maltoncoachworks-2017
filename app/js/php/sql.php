@@ -8,12 +8,12 @@ $tablename = "catalogue";
 $qSelect = "SELECT $commonFields,$snippetField,category AS categoryID";
 $qFrom = " FROM $tablename";
 $qWhere = " WHERE $commonWhere";
-if($categoryID) $qWhere.=" AND category=$categoryID";
-if($subcategoryID) $qWhere.=" AND subcategory=$subcategoryID";
+if(isset($categoryID)) $qWhere.=" AND category=$categoryID";
+if(isset($subcategoryID)) $qWhere.=" AND subcategory=$subcategoryID";
 //if($sqlKeyword) $qWhere.=" AND id_xtra=0 AND name LIKE '%".$sqlKeyword."%'";
 $qOrder = " ORDER BY upload_date DESC";
 $qLimit = "";
-if($sqlLimit) $qLimit = " LIMIT $sqlLimit";
+if(isset($sqlLimit)) $qLimit = " LIMIT $sqlLimit";
 $ctrlQueryBuild = true;
 
 
@@ -40,11 +40,11 @@ if($ctrlSQL=="banner_carousel"){
     //$qLimit = " LIMIT 3";
 }elseif($ctrlSQL=="itemPreviewCtrl"){
     $ctrlQueryBuild = false;
-    if($_REQUEST['itemID']) $itemID = $_REQUEST['itemID'];
+    if(isset($_REQUEST['itemID'])) $itemID = $_REQUEST['itemID'];
     $ctrlQuery = "SELECT $commonFields,$snippetField FROM $tablename WHERE id=$itemID";
 }elseif($ctrlSQL=="itemDetailsCtrl"){
-    $ctrlQueryBuild = false;
-    if($_REQUEST['itemID']) $itemID = $_REQUEST['itemID'];
+    $ctrlQueryBuild = false;    
+    if(isset($_REQUEST['itemID'])) $itemID = $_REQUEST['itemID'];
     $ctrlQuery = "SELECT $commonFields,category AS categoryID,subcategory AS subcategoryID,detail_5 as snippetFull, description FROM $tablename WHERE id=$itemID OR id_xtra=$itemID ORDER BY id ASC,position_initem ASC $qLimit";
 }
 if($ctrlQueryBuild) $ctrlQuery = $qSelect.$qFrom.$qWhere.$qOrder.$qLimit;

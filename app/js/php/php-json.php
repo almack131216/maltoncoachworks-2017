@@ -29,6 +29,7 @@ if(isset($_GET['user'])) {
 
 	/* INTRO TEXTS */
 	$ctrlSQL="itemDetailsCtrl";
+
 	/* about intro */	
 	$itemID=514;
 	include('sql.php');
@@ -63,7 +64,6 @@ if(isset($_GET['user'])) {
 	$query = $ctrlQuery;	
 	$result = mysql_query($query,$link) or die('Errant query:  '.$query);
 	$introServicesArr = mysql_fetch_assoc($result);
-
 
 	/* carousel */
 	$ctrlSQL="itemDetailsCtrl";
@@ -150,9 +150,9 @@ if(isset($_GET['user'])) {
     
     echo $response;
 
-    // $fp = fopen('results.json', 'w');
-	// fwrite($fp, $response);
-	// fclose($fp);
+    $fp = fopen('results.json', 'w');
+	fwrite($fp, $response);
+	fclose($fp);
     
 	/* disconnect from the db */
 	@mysql_close($link);

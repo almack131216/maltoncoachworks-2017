@@ -2,8 +2,7 @@ myControllers.controller('itemGetSetCtrl', function ($scope, $http, $rootScope, 
     $scope.data = myFactory.data;
 
     $scope.getItem = function (getID) {
-        if ($scope.jsonKey && $rootScope.commonData && $scope.XXX) {
-            alert(getID);
+        if ($scope.jsonKey && $rootScope.commonData) {
             $scope.product = $rootScope.commonData.data[$scope.jsonKey];
             $scope.productParent = $scope.product;
             $scope.itemID = $scope.product['id'];
@@ -15,7 +14,7 @@ myControllers.controller('itemGetSetCtrl', function ($scope, $http, $rootScope, 
         
             $rootScope.itemName = $scope.product['name'];
             if($scope.product['snippetFull']) $rootScope.meta_description = $scope.product['snippetFull'];
-            //alert('success: ' + data[0]);
+            console.log('(JSON item) success: ' + $scope.product);
 
             $scope.pendingRequest = false;
         } else {

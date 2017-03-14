@@ -21,10 +21,14 @@ myRuns.run([
         };
 
         if (!$rootScope.commonData) $http.get('app/js/php/php-json.php?user=999')
-            .then(function (res) {
-                $rootScope.commonData = res;
-                //console.log($rootScope.commonData);
-            });
+            .then(
+                function (res) {
+                    $rootScope.commonData = res;                    
+                },
+                function(res){
+                    console.log('--------------------------');
+                    console.log(res);
+                });
 
         //call on each page change
         $rootScope.$on('$stateChangeSuccess',

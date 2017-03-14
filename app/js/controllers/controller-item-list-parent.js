@@ -35,7 +35,7 @@ function($scope, $rootScope, $http, $log, myFactory, buildSQLService, $statePara
     $scope.mySQL = buildSQLService.getURL($rootScope.activeCategory+"Ctrl",$scope.categoryID,$scope.subcategoryID,$scope.sqlLimit,$rootScope.sqlKeyword);
     console.log('mySQL: ' + $scope.mySQL);
     console.log('jsonKey: ' + $scope.jsonKey);    
-    $rootScope.commonData = null;
+    //$rootScope.commonData = null;
 
     if($scope.jsonKey && $rootScope.commonData){
         $scope.products = $rootScope.commonData.data[$scope.jsonKey];
@@ -77,7 +77,7 @@ function($scope, $rootScope, $http, $log, myFactory, buildSQLService, $statePara
     }    
 
     $scope.sanitizeURL = function(getString){
-        console.log('sanitizeURL: ' + getString);
+        //console.log('sanitizeURL: ' + getString);
         return getString.replace(/\s+/g, '-').toLowerCase();
     }
 
